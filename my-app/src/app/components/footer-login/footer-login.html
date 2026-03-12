@@ -1,0 +1,8 @@
+<div class="footer-login">
+  <ng-container *ngIf="auth.isLoggedIn(); else loginBlock">
+    Welcome <span class="footer-username" (click)="logout()">{{ auth.getUser().name || auth.getUser().username }}</span>
+  </ng-container>
+  <ng-template #loginBlock>
+    <a routerLink="/login" class="footer-login-link">Login</a>
+  </ng-template>
+</div>

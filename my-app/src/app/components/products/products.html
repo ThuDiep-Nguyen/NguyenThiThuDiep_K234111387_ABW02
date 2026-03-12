@@ -1,0 +1,54 @@
+<div class="search-bar">
+  <div class="filter-wrapper">
+    <select [(ngModel)]="priceRange" class="search-dropdown">
+      <option *ngFor="let pr of priceRanges" [value]="pr.value">{{pr.label}}</option>
+    </select>
+    <button *ngIf="priceRange" (click)="clearPriceRange()" class="clear-filter-btn" title="Clear price filter">×</button>
+  </div>
+  <div class="filter-wrapper">
+    <select [(ngModel)]="model" class="search-dropdown" [ngClass]="{empty: !model}">
+      <option value="">Model</option>
+      <option *ngFor="let m of modelOptions" [value]="m">{{m}}</option>
+    </select>
+    <button *ngIf="model" (click)="clearModel()" class="clear-filter-btn" title="Clear model filter">×</button>
+  </div>
+  <div class="filter-wrapper">
+    <select [(ngModel)]="madeBy" class="search-dropdown" [ngClass]="{empty: !madeBy}">
+      <option value="">Brand/Made By</option>
+      <option *ngFor="let b of madeByOptions" [value]="b">{{b}}</option>
+    </select>
+    <button *ngIf="madeBy" (click)="clearMadeBy()" class="clear-filter-btn" title="Clear brand filter">×</button>
+  </div>
+  <select [(ngModel)]="sortBy" class="sort-select">
+    <option value="">Sort by Price...</option>
+    <option value="asc">Price: Low to High</option>
+    <option value="desc">Price: High to Low</option>
+  </select>
+  <button (click)="search()">Search & Sort</button>
+  <button (click)="reset()">All Products</button>
+</div>
+
+<div class="categories-container" *ngFor="let group of groupedData">
+  <h2 class="category-title">{{ group.category.CategoryName || group.category.name }}</h2>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of group.products">
+      <img [src]="product.image" [alt]="product.productId" class="product-img">
+      <div class="product-info">
+        <h3>{{product.name}}</h3>
+        <div class="product-meta">
+          <span>Model: {{product.model}}</span>
+          <span>Brand: {{product.madeBy}}</span>
+          <span class="price">{{product.price | currency:'VND':'symbol':'1.0-0'}}</span>
+        </div>
+        <div class="buy-actions">
+          <input type="number" #qty value="1" min="1">
+          <div class="action-buttons">
+            <button class="add-to-cart-btn" (click)="addToCart(product, qty.value)">Add to Cart</button>
+            <button class="buy-now-btn" (click)="buy(product, qty.value)">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

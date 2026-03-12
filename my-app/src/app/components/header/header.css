@@ -1,0 +1,75 @@
+.menu-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.menu-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* Khoảng cách giữa các mục trên thanh điều hướng */
+  width: 100%;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a, .welcome-link {
+  display: block;
+  padding: 12px 20px;
+  color: #121c8f; /* Màu chữ xanh navy */
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.menu-item > a:hover, .welcome-link:hover {
+  color: #0b1161;
+  border-bottom: 2px solid #121c8f; /* Gạch dưới text khi hover */
+}
+
+/* Dropdown styling - Định dạng danh sách thả xuống */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Đổ bóng nhẹ mượt mà */
+  border-radius: 8px;
+  z-index: 100;
+  margin-top: 0px;
+  padding-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #121c8f;
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  border-bottom: 1px solid #f9f9f9;
+  transition: 0.3s;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #fdfaf0;
+  font-weight: bold;
+}

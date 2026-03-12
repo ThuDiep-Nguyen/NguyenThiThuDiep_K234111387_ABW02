@@ -1,0 +1,19 @@
+
+.revenue-container { padding: 20px; }
+.stats { display: flex; gap: 20px; }
+.total-box, .year-box { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 300px; }
+.amount { font-size: 2em; color: #28a745; font-weight: bold; }
+ul { list-style: none; padding: 0; }
+li { padding: 10px 0; border-bottom: 1px solid #eee; }
+.unauth { text-align: center; margin-top: 50px; color: red; }
+
+.split-stats {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.year-box {
+  flex: 1;
+  min-width: 250px;
+}

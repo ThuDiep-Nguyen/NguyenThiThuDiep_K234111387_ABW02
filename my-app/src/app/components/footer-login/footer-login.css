@@ -1,0 +1,20 @@
+.footer-login {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 16px;
+  color: #121c8f;
+  padding-left: 32px;
+}
+.footer-username {
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+.footer-login-link {
+  color: #121c8f;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}

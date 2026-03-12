@@ -1,0 +1,36 @@
+<div *ngIf="auth.isEmployee(); else unauth" class="revenue-container">
+  <h2>Revenue Statistics</h2>
+  <div *ngIf="revenueData" class="stats">
+    
+    <div class="total-box">
+      <h3>Total Revenue (All Time)</h3>
+      <p class="amount">{{ revenueData.totalRevenue | currency:'VND':'symbol':'1.0-0' }}</p>
+    </div>
+
+    <div class="split-stats">
+      <div class="year-box" *ngIf="revenueData.byYearMonth">
+        <h3>Revenue by Time Period (Month)</h3>
+        <ul>
+          <li *ngFor="let month of (revenueData.byYearMonth | keyvalue)">
+            {{ month.key }}: <strong>{{ month.value | currency:'VND':'symbol':'1.0-0' }}</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year-box" *ngIf="revenueData.byCategory">
+        <h3>Revenue by Category</h3>
+        <ul>
+          <li *ngFor="let cat of (revenueData.byCategory | keyvalue)">
+            {{ cat.key }}: <strong>{{ cat.value | currency:'VND':'symbol':'1.0-0' }}</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #unauth>
+  <div class="unauth">
+    <h2>Unauthorized</h2>
+    <p>Only employees can access this page.</p>
+  </div>
+</ng-template>
